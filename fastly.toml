@@ -1,0 +1,13 @@
+# This file describes a Fastly Compute package. To learn more visit:
+# https://developer.fastly.com/reference/fastly-toml/
+
+authors = ["oss@fastly.com"]
+description = "Implements WebSockets passthrough"
+language = "go"
+manifest_version = 3
+name = "WebSockets passthrough Go"
+
+[scripts]
+env_vars = ["GOARCH=wasm", "GOOS=wasip1"]
+build = "go build -o bin/main.wasm ."
+post_init = "go get github.com/fastly/compute-sdk-go@latest"
